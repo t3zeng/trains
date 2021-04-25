@@ -3,7 +3,7 @@
 
 using namespace std;
 
-// track traversal demo using junctions and going backwards
+// track traversal demo using junctions
 void track_traversal_demo() {
     track *t1 = new track(NULL, NULL, 1, NONE);
     track *t2 = new track(t1->get_end(), NULL, 2, NONE);
@@ -15,12 +15,25 @@ void track_traversal_demo() {
     node *alias = t1;
     while(alias->get_end()->get_partner() != NULL) {
         cout << alias->get_length() << endl;
-        alias = alias->get_end()->get_partner()->get_track();
+        alias = alias->get_end()->get_partner()->get_node();
     }
     cout << alias->get_length() << endl;
     while(alias->get_start()->get_partner() != NULL) {
         cout << alias->get_length() << endl;
-        alias = alias->get_start()->get_partner()->get_track();
+        alias = alias->get_start()->get_partner()->get_node();
+    }
+    cout << alias->get_length() << endl;
+
+    j1->set_direction(RIGHT);
+
+    while(alias->get_end()->get_partner() != NULL) {
+        cout << alias->get_length() << endl;
+        alias = alias->get_end()->get_partner()->get_node();
+    }
+    cout << alias->get_length() << endl;
+    while(alias->get_start()->get_partner() != NULL) {
+        cout << alias->get_length() << endl;
+        alias = alias->get_start()->get_partner()->get_node();
     }
     cout << alias->get_length() << endl;
 }

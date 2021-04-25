@@ -1,7 +1,7 @@
 #include "components.h"
 #include <cstddef>
 
-connection::connection(connection *p, track *t, junction *j) {
+connection::connection(connection *p, node *n) {
     // connects to partner connection
     partner = p;
 
@@ -10,21 +10,14 @@ connection::connection(connection *p, track *t, junction *j) {
         partner->partner = this;
     }
 
-    // ties connection to a track
-    associated_track = t;
-
-    // ties connection to a junction
-    associated_junction = j;
+    // ties connection to a node (track/junction)
+    associated_node = n;
 }
 
 connection *connection::get_partner() {
     return partner;
 }
 
-track *connection::get_track() {
-    return associated_track;
-}
-
-junction *connection::get_junction() {
-    return associated_junction;
+node *connection::get_node() {
+    return associated_node;
 }

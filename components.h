@@ -33,13 +33,11 @@ class track : public node {
 class connection {
     protected:
         connection *partner;
-        track *associated_track;
-        junction *associated_junction;
+        node *associated_node;
     public:
-        connection(connection *p, track *t, junction *j);
+        connection(connection *p, node *n);
         connection *get_partner();
-        track *get_track();
-        junction *get_junction();
+        node *get_node();
 };
 
 typedef enum {

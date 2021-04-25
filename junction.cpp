@@ -5,9 +5,9 @@
 using namespace std;
 
 junction::junction(connection *s, connection *el, connection *er, direction_t d) {
-    start = new connection(s, NULL, this);
-    end_left = new connection(s, NULL, this);
-    end_right = new connection(s, NULL, this);
+    start = new connection(s, this);
+    end_left = new connection(el, this);
+    end_right = new connection(er, this);
     end = end_left;
     dir = d;
     length = 0;
