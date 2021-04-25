@@ -30,6 +30,8 @@ class track : public node {
         bool has_train;
     public:
         track(int id, connection *s, connection *e, int l, signal_state_t ss);
+        void set_signal(signal_state_t ss);
+        signal_state_t get_signal();
 };
 
 class connection {

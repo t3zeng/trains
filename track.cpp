@@ -13,3 +13,11 @@ track::track(int id, connection *s, connection *e, int l, signal_state_t ss) {
     has_train = false;
     node_id = id;
 }
+
+void track::set_signal(signal_state_t ss) {
+    sig = ss;
+}
+
+signal_state_t track::get_signal() {
+    return sig;
+}
