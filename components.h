@@ -34,7 +34,6 @@ typedef enum {
 class track : public node {
     private:
         signal_state_t sig;
-        int train_count;
     public:
         track(int id, connection *s, connection *e, int l, signal_state_t ss);
         void set_signal(signal_state_t ss);
@@ -99,6 +98,7 @@ class train {
         node *current_segment;
         int destination_node_id;
         train_dir_t train_dir;
+        int segment_idx;
     public:
         train(int id, node *current, train_state_t state, int dest_id, train_dir_t td);
         int traverse_node();

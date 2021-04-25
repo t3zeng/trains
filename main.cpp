@@ -63,7 +63,7 @@ void train_traversal_demo() {
 
 void train_traversal_demo2() {
     track *t1 = new track(1, NULL, NULL, 2, NONE);
-    track *t2 = new track(2, t1->get_end(), NULL, 2, GREEN);
+    track *t2 = new track(2, t1->get_end(), NULL, 1, GREEN);
     junction *j1 = new junction(3, t2->get_end(), NULL, NULL, LEFT);
     track *t3 = new track(4, j1->get_end_left(), NULL, 3, RED);
     track *t4 = new track(5, j1->get_end_right(), NULL, 1, NONE);
@@ -99,7 +99,7 @@ void train_traversal_demo2() {
 int main() {
     // track_traversal_demo();
     // train_traversal_demo();
-    // train_traversal_demo2();
+    train_traversal_demo2();
 
     return 0;
 }

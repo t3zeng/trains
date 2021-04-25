@@ -10,10 +10,20 @@ train::train(int id, node *current, train_state_t state, int dest_id, train_dir_
     train_state = state;
     destination_node_id = dest_id;
     train_dir = td;
+    segment_idx = 0;
 }
 
 // returns the id of node after traversal
 int train::traverse_node() {
+    // stay on the node and increment train's idx until we reach length of segment
+    if(current_segment->get_length() > segment_idx) {
+        segment_idx++;
+        cout << "Train " << train_id << " is traversing to idx "<< segment_idx << " at " << current_segment->get_node_id() << endl;
+        return current_segment->get_node_id();
+    }
+    // getting this far means we are on a new segment
+    segment_idx = 0;
+
     // don't go anywhere if train is stopped
     if(train_state == STOPPED) {
         cout << "Train " << train_id << " is stopped at " << current_segment->get_node_id() << endl;
@@ -25,12 +35,6 @@ int train::traverse_node() {
         cout << "Train " << train_id << " stopped as it has reached a terminator at " << current_segment->get_node_id() << endl;
         train_state = STOPPED;
         return current_segment->get_node_id();
-    }
-    // if the train is at a junction not configured to the train's segment, train is stopped
-    if(current_segment->get_node_type() == JUNCTION) {
-        // TODO: HANDLE JUNCTION LOGIC
-        // train_state = STOPPED;
-        // return current_segment->get_node_id();
     }
 
     if(train_dir == FORWARD) current_segment = current_segment->get_end()->get_partner()->get_node();

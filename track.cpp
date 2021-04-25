@@ -11,7 +11,6 @@ track::track(int id, connection *s, connection *e, int l, signal_state_t ss) {
     end = new connection(e, this);
     length = l;
     sig = ss;
-    train_count = 0;
     node_id = id;
 }
 
