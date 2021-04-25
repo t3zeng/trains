@@ -68,7 +68,9 @@ typedef enum {
 class train {
     private:
         int train_id;
-        train_state_t state;
+        train_state_t train_state;
+        node *current_segment;
+        int destination_node_id;
     public:
-        train(int id);
+        train(int id, node *current, train_state_t state, int dest_id);
 };
