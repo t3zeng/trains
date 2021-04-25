@@ -76,4 +76,6 @@ class train {
         int traverse_node();
         node *get_current_segment();
         int get_destination_node_id();
+        void set_train_state(train_state_t state);
+        train_state_t get_train_state();
 };

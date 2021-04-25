@@ -31,3 +31,11 @@ node *train::get_current_segment() {
 int train::get_destination_node_id() {
     return destination_node_id;
 }
+
+void train::set_train_state(train_state_t state) {
+    train_state = state;
+}
+
+train_state_t train::get_train_state() {
+    return train_state;
+}
