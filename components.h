@@ -62,6 +62,19 @@ class junction : public node {
         connection *get_end_right();
 };
 
+class reverse_junction : public node {
+    private:
+        connection *start_left;
+        connection *start_right;
+        direction_t dir;
+    public:
+        reverse_junction(int id, connection *sl, connection *sr, connection *e, direction_t d);
+        void set_direction(direction_t d);
+        direction_t get_direction();
+        connection *get_start_left();
+        connection *get_start_right();
+};
+
 typedef enum {
     STOPPED,
     MOVING
@@ -88,5 +101,5 @@ class train {
         void set_train_state(train_state_t state);
         train_state_t get_train_state();
         void set_train_dir(train_dir_t dir);
-        train_dir_t get_train_dr();
+        train_dir_t get_train_dir();
 };

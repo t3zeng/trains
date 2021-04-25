@@ -51,6 +51,6 @@ void train::set_train_dir(train_dir_t dir) {
     train_dir = dir;
 }
 
-train_dir_t train::get_train_dr() {
+train_dir_t train::get_train_dir() {
     return train_dir;
 }
