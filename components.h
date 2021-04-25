@@ -73,4 +73,7 @@ class train {
         int destination_node_id;
     public:
         train(int id, node *current, train_state_t state, int dest_id);
+        int traverse_node();
+        node *get_current_segment();
+        int get_destination_node_id();
 };
