@@ -10,10 +10,12 @@ class node {
         connection *start;
         connection *end;
         int length;
+        int node_id;
     public:
         connection *get_start();
         connection *get_end();
         int get_length();
+        int get_node_id();
 };
 
 typedef enum {
@@ -27,7 +29,7 @@ class track : public node {
         signal_state_t sig;
         bool has_train;
     public:
-        track(connection *s, connection *e, int l, signal_state_t ss);
+        track(int id, connection *s, connection *e, int l, signal_state_t ss);
 };
 
 class connection {
@@ -51,7 +53,7 @@ class junction : public node {
         connection *end_right;
         direction_t dir;
     public:
-        junction(connection *s, connection *el, connection *er, direction_t d);
+        junction(int id, connection *s, connection *el, connection *er, direction_t d);
         void set_direction(direction_t d);
         direction_t get_direction();
         connection *get_end_left();

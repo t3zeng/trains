@@ -4,13 +4,14 @@
 
 using namespace std;
 
-junction::junction(connection *s, connection *el, connection *er, direction_t d) {
+junction::junction(int id, connection *s, connection *el, connection *er, direction_t d) {
     start = new connection(s, this);
     end_left = new connection(el, this);
     end_right = new connection(er, this);
     end = end_left;
     dir = d;
     length = 0;
+    node_id = id;
 }
 
 void junction::set_direction(direction_t d) {

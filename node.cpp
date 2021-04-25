@@ -11,3 +11,7 @@ connection * node::get_start() {
 connection * node::get_end() {
     return end;
 }
+
+int node::get_node_id() {
+    return node_id;
+}
