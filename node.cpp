@@ -15,3 +15,7 @@ connection * node::get_end() {
 int node::get_node_id() {
     return node_id;
 }
+
+node_type_t node::get_node_type() {
+    return type;
+}

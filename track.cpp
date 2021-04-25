@@ -6,6 +6,7 @@ using namespace std;
 // start - points to what connection the starting connection points to
 // end - points to what connection the ending connection points to
 track::track(int id, connection *s, connection *e, int l, signal_state_t ss) {
+    type = TRACK;
     start = new connection(s, this);
     end = new connection(e, this);
     length = l;

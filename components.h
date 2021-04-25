@@ -5,17 +5,24 @@ class connection;
 class junction;
 class node;
 
+typedef enum {
+    TRACK,
+    JUNCTION
+} node_type_t;
+
 class node {
     protected:
         connection *start;
         connection *end;
         int length;
         int node_id;
+        node_type_t type;
     public:
         connection *get_start();
         connection *get_end();
         int get_length();
         int get_node_id();
+        node_type_t get_node_type();
 };
 
 typedef enum {

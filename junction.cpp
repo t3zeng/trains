@@ -5,6 +5,7 @@
 using namespace std;
 
 junction::junction(int id, connection *s, connection *el, connection *er, direction_t d) {
+    type = JUNCTION;
     start = new connection(s, this);
     end_left = new connection(el, this);
     end_right = new connection(er, this);
@@ -41,6 +42,7 @@ connection *junction::get_end_right() {
 }
 
 reverse_junction::reverse_junction(int id, connection *sl, connection *sr, connection *e, direction_t d) {
+    type = JUNCTION;
     start_left = new connection(sl, this);
     start_right = new connection(sr, this);
     end = new connection(e, this);
