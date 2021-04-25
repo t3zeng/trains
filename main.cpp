@@ -46,7 +46,15 @@ void train_traversal_demo() {
     junction *j1 = new junction(4, t3->get_end(), NULL, NULL, LEFT);
     track *t4 = new track(5, j1->get_end_left(), NULL, 4, NONE);
     track *t5 = new track(6, j1->get_end_right(), NULL, 5, NONE);
-    train *my_train = new train(1, t1, MOVING, 5);
+    train *my_train = new train(1, t1, MOVING, 5, FORWARD);
+
+    cout << my_train->get_current_segment()->get_node_id() << endl;
+    while(my_train->get_current_segment()->get_node_id() != my_train->get_destination_node_id()) {
+        cout << my_train->traverse_node() << endl;
+    }
+
+    my_train->set_destination_node_id(1);
+    my_train->set_train_dir(BACKWARD);
 
     cout << my_train->get_current_segment()->get_node_id() << endl;
     while(my_train->get_current_segment()->get_node_id() != my_train->get_destination_node_id()) {

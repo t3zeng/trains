@@ -27,7 +27,7 @@ typedef enum {
 class track : public node {
     private:
         signal_state_t sig;
-        bool has_train;
+        int train_count;
     public:
         track(int id, connection *s, connection *e, int l, signal_state_t ss);
         void set_signal(signal_state_t ss);
@@ -67,17 +67,26 @@ typedef enum {
     MOVING
 } train_state_t;
 
+typedef enum {
+    BACKWARD,
+    FORWARD
+} train_dir_t;
+
 class train {
     private:
         int train_id;
         train_state_t train_state;
         node *current_segment;
         int destination_node_id;
+        train_dir_t train_dir;
     public:
-        train(int id, node *current, train_state_t state, int dest_id);
+        train(int id, node *current, train_state_t state, int dest_id, train_dir_t td);
         int traverse_node();
         node *get_current_segment();
+        void set_destination_node_id(int dest_id);
         int get_destination_node_id();
         void set_train_state(train_state_t state);
         train_state_t get_train_state();
+        void set_train_dir(train_dir_t dir);
+        train_dir_t get_train_dr();
 };
