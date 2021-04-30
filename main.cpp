@@ -1,5 +1,6 @@
 #include <iostream>
 #include "components.h"
+#include "input.h"
 
 using namespace std;
 
@@ -99,7 +100,9 @@ void train_traversal_demo2() {
 int main() {
     // track_traversal_demo();
     // train_traversal_demo();
-    train_traversal_demo2();
+    // train_traversal_demo2();
+
+    run_simulation();
 
     return 0;
 }

@@ -109,4 +109,5 @@ class train {
         train_state_t get_train_state();
         void set_train_dir(train_dir_t dir);
         train_dir_t get_train_dir();
+        int get_train_id();
 };

@@ -75,3 +75,7 @@ void train::set_train_dir(train_dir_t dir) {
 train_dir_t train::get_train_dir() {
     return train_dir;
 }
+
+int train::get_train_id() {
+    return train_id;
+}
