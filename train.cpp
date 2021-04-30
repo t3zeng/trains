@@ -15,6 +15,12 @@ train::train(int id, node *current, train_state_t state, int dest_id, train_dir_
 
 // returns the id of node after traversal
 int train::traverse_node() {
+    // don't go anywhere if train is stopped
+    if(train_state == STOPPED) {
+        cout << "Train " << train_id << " is stopped at " << current_segment->get_node_id() << endl;
+        return current_segment->get_node_id();
+    }
+    
     // stay on the node and increment train's idx until we reach length of segment
     if(current_segment->get_length() > segment_idx) {
         segment_idx++;
@@ -24,11 +30,6 @@ int train::traverse_node() {
     // getting this far means we are on a new segment
     segment_idx = 0;
 
-    // don't go anywhere if train is stopped
-    if(train_state == STOPPED) {
-        cout << "Train " << train_id << " is stopped at " << current_segment->get_node_id() << endl;
-        return current_segment->get_node_id();
-    }
     // if there is no connected node then we're at a terminator
     if((train_dir == FORWARD && current_segment->get_end()->get_partner() == NULL) ||
         (train_dir == BACKWARD && current_segment->get_start()->get_partner() == NULL)) {
