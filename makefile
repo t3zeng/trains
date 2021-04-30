@@ -1,6 +1,6 @@
 all:
 	@echo "make all"
-	g++ main.cpp track.cpp connection.cpp junction.cpp node.cpp train.cpp input.cpp -o trains.out
+	g++ -std=c++14 main.cpp track.cpp connection.cpp junction.cpp node.cpp train.cpp input.cpp djikstra.cpp -o trains.out
 
 clean:
 	@echo "make clean"
