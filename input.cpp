@@ -5,19 +5,19 @@
 
 using namespace std;
 
-static vector<track *> track_array;
+static vector<node *> node_array;
 static vector<train *> train_array;
 
 // Build Train Track Here
 static void train_sandbox() {
-    track_array.push_back(new track(1, NULL, NULL, 3, NONE));
-    track_array.push_back(new track(2, track_array[0]->get_end(), NULL, 1, NONE));
-    track_array.push_back(new track(3, track_array[1]->get_end(), NULL, 2, NONE));
-    track_array.push_back(new track(4, track_array[2]->get_end(), NULL, 4, NONE));
-    track_array.push_back(new track(5, track_array[3]->get_end(), NULL, 10, NONE));
-    track_array.push_back(new track(6, track_array[4]->get_end(), NULL, 5, NONE));
+    node_array.push_back(new track(1, NULL, NULL, 3, NONE));
+    node_array.push_back(new track(2, node_array[0]->get_end(), NULL, 1, NONE));
+    node_array.push_back(new track(3, node_array[1]->get_end(), NULL, 2, NONE));
+    node_array.push_back(new track(4, node_array[2]->get_end(), NULL, 4, NONE));
+    node_array.push_back(new track(5, node_array[3]->get_end(), NULL, 10, NONE));
+    node_array.push_back(new track(6, node_array[4]->get_end(), NULL, 5, NONE));
 
-    train_array.push_back(new train(1, track_array[0], MOVING, 6, FORWARD));
+    train_array.push_back(new train(1, node_array[0], MOVING, 6, FORWARD));
 }
 
 // @TODO: Junction, Stoplight control occurs here
@@ -30,5 +30,6 @@ void run_simulation() {
         while(train_array[i]->get_current_segment()->get_node_id() != train_array[i]->get_destination_node_id()) {
             train_array[i]->traverse_node();
         }
+        cout << "Train " << train_array[i]->get_train_id() << " arrived at the destination!" << endl;
     }
 }
